@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8"/>
+        <link link rel="stylesheet" href="index.css"/>
+        <title>Первый день Святого Валентина</title>
+        <script>
+            window.onload = random_choice;
+
+            var images = new Array(
+                'img/chaika.jpg',
+                'img/colessum.jpg',
+                'img/eifel_tower.jpg',
+                'img/forum.jpg',
+                'img/gelato.jpg',
+                'img/monmartr.jpg',
+                'img/panteon.jpg',
+                'img/shagal.jpg',
+                'img/villa_adriana.jpg'
+            );
+
+            var description = new Array(
+                'А она такая ванильная, но я никогда не назвала бы ее сладкой.',
+                'Вот оно женское непостоянство! Одного и того же мужчину хочется то любить… то убить.',
+                'Париж.... это страсть. Париж — это праздник, это песня, это чувство. Но Париж — это и работа, метро.',
+                'Я -- Михаил Шульман, ты -- Екатерина Заславская, мы встретились на этом форуме...',
+                'Сахарное утро, мармеладный день и шоколадная ночь…',
+                'Я готов смотреть на тебя, как на картины Ренуара...',
+                'С Днем святого Валентина❤❤❤',
+                'Смысл любой свадебной фотосессии — сделать как можно больше фотографий в разных кустарниках города.',
+                'Если рядом с вами не мператрица, значит и вы ни разу не император.'
+            )
+
+            function random_choice() {
+                var randomNum = Math.floor(Math.random() * images.length);
+                document.getElementById('our_photo').src = images[randomNum];
+
+                var text = document.createElement('i');
+                text.textContent = description[randomNum];
+                document.getElementById('text').appendChild(
+                    text
+                );
+            }
+        </script>
+        <style>
+            .header {
+                width: 90%;
+                box-shadow: 5px 5px 5px -5px rgb(100, 100, 100);
+                text-align: center;
+                font-size: 50pt;
+                border-style: solid;
+                border-width: 1px;
+                color: darkgrey;
+                padding: 50px;
+                margin: auto;
+            }
+
+            .main {
+                width: 90%;
+                margin: auto;
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 70vh;
+            }
+
+            .image {
+                width: 60%;
+                box-shadow: 5px 5px 5px -5px rgb(100, 100, 100);
+                height: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            #text {
+                width: 30%;
+                height: 100%;
+                box-shadow: 5px 5px 5px -5px rgb(100, 100, 100);
+                font-size: 20pt;
+                padding-top: 20px;
+                color: rgb(100, 100, 100);
+                padding-right: 20px;
+                text-align: justify;
+            }
+
+            #our_photo {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='header'>
+            From Rome and Paris with Love
+        </div>
+        <div class='main'>
+            <div class="image">
+                <img src='img/forum.jpg' id="our_photo">
+            </div>
+            <div id="text"></div>
+        </div>
+    </body>
+</html>
